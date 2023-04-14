@@ -1,0 +1,3 @@
+C:/Users/yceachan/Desktop/32things/FDC_trail/cmake-build-debug-embedded--_mingw/CMakeFiles/FDC_trail.elf.dir
+C:/Users/yceachan/Desktop/32things/FDC_trail/cmake-build-debug-embedded--_mingw/CMakeFiles/edit_cache.dir
+C:/Users/yceachan/Desktop/32things/FDC_trail/cmake-build-debug-embedded--_mingw/CMakeFiles/rebuild_cache.dir
