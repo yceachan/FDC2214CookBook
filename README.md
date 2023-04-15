@@ -438,3 +438,19 @@ $(0XFF +0X0A)*16/fREF=4240/40Mhz  =106 us/sample$
 > 发现模块集成电感容差为10%，为输出数据除补偿因子{0.9 ,1.1 }，示值的上界下界如图：
 
 <img src="https://s2.loli.net/2023/04/14/SlnRj5mCdb9HyT1.png" alt="image-20230414221926728" style="zoom: 33%;" />
+
+## 3.4 TI参考译文贴
+
+### 3.4.1 @驱动电流可能影响电容示值
+
+![image-20230415203531365](https://s2.loli.net/2023/04/15/6lHwmtzFyxZqhvK.png)
+
+见3.4.3.电流源驱动影响测量电压，低电压精度不足，高电压会错误打开意
+
+### 3.4.2@fdc不适合测量绝对电容
+
+![image-20230415205005706](C:\Users\yceachan\AppData\Roaming\Typora\typora-user-images\image-20230415205005706.png)
+
+### 3.4.3@电容的阻抗-频率特性可能影响测量结果
+
+![image-20230415211204142](https://s2.loli.net/2023/04/15/MLt4oy1cp2G5Hah.png)
