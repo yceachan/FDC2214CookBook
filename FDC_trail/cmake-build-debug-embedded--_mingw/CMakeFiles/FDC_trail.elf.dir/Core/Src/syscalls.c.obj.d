@@ -1,5 +1,5 @@
 CMakeFiles/FDC_trail.elf.dir/Core/Src/syscalls.c.obj: \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\Src\syscalls.c \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\Src\syscalls.c \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\stat.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\_ansi.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\newlib.h \

@@ -43,7 +43,6 @@
  * @notice：打印名将是传入文本的原样,可以为表达式或字面量;底层LOGGER为print方法，请实现,
  * */
 #define logln(...) do{print("in ",__FUNCTION__,",l",__LINE__,endl);EXPAND(NTH_LOG(__VA_ARGS__))(__VA_ARGS__);}while(0)
-#define logplot(...) do{print("sample:",__VA_ARGS__,'\n');}while(0)
 
 //只处理数字数字与字符串
 template<typename T>
@@ -51,11 +50,10 @@ void print(T&& arg){
     if constexpr (std::is_assignable_v<std::string_view ,T>){   //能顺利捕捉到char (&)[]类型的方法。
         std::string_view str=arg;
         HAL_UART_Transmit(LOGGER,str.data(),str.length(),300);
-        bool oh=std::is_arithmetic_v<char>;
     }
     else {
-        std::string str=std::to_string(arg)+' ';
-        HAL_UART_Transmit(LOGGER,str.c_str(),str.length(),300);
+        std::string str=std::to_string(arg) +' ';
+        HAL_UART_Transmit(LOGGER,str.data(),str.length(),300);
     }
 }
 //字符与bool的特化方法，区分左右值引用

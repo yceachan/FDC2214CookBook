@@ -56,7 +56,20 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+Fdc fdc(0x2A,FDC_SCL_PIN_GPIO_Port,FDC_SCL_PIN_Pin,FDC_SDA_PIN_GPIO_Port,FDC_SDA_PIN_Pin);
+uint32_t  T=0;
+bool flag=false;
+//不进中断捏
+void HAL_GPIO_EXTI_Callback(uint16_t pin) {
 
+    uint8_t msb[2]={0},lsb[2]={0};
+    fdc.regRead( 0x18,2,msb);
+    fdc.regRead( 0x04,2,msb);//读完msb还是lsb，status清零呢，
+    fdc.regRead(0x05,2,lsb);
+    T= __HAL_TIM_GET_COUNTER(&htim6);
+    __HAL_TIM_SET_COUNTER(&htim6,0);
+    flag=true;
+}
 /* USER CODE END 0 */
 
 /**
@@ -92,19 +105,15 @@ int main(void)
   MX_TIM6_Init();
     MX_USART1_UART_Init();
 
-    Fdc fdc(0x2A,FDC_SCL_PIN_GPIO_Port,FDC_SCL_PIN_Pin,FDC_SDA_PIN_GPIO_Port,FDC_SDA_PIN_Pin);
     fdc.singleinit();
 
+    uint32_t  cnt=0;
     while (1)
     {
-        auto [ch0_cmin,ch0_cmax,ch0_f,ch0_cnt]=fdc.plot_test(0);
-
-//        auto [ch1_cmin,ch1_cmax,ch1_f,ch1_cnt]=fdc.plot_test(1);
-
-//        logplot(ch0_cmin,ch0_cmax,ch1_cmin,ch1_cmax);
-        logplot(ch0_cmin,ch0_cmax);
-
-
+       if(flag){
+           print("c:",T,'\n');
+           flag=false;
+       }
     }
   /* USER CODE END 3 */
 }

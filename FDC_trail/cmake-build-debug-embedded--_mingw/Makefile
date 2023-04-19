@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\yceachan\Desktop\32things\FDC_trail
+CMAKE_SOURCE_DIR = C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\yceachan\Desktop\32things\FDC_trail\cmake-build-debug-embedded--_mingw
+CMAKE_BINARY_DIR = C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\cmake-build-debug-embedded--_mingw
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\yceachan\Desktop\32things\FDC_trail\cmake-build-debug-embedded--_mingw\CMakeFiles C:\Users\yceachan\Desktop\32things\FDC_trail\cmake-build-debug-embedded--_mingw\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\cmake-build-debug-embedded--_mingw\CMakeFiles C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\cmake-build-debug-embedded--_mingw\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\yceachan\Desktop\32things\FDC_trail\cmake-build-debug-embedded--_mingw\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\cmake-build-debug-embedded--_mingw\CMakeFiles 0
 .PHONY : all
 
 # The main clean target

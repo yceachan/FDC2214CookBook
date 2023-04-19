@@ -14,7 +14,7 @@ public:
     void singleinit();
     void multinit();
     void test();
-    std::tuple<double, double, double, uint32_t> plot_test(uint8_t CH);
+    std::tuple<double, uint32_t> plot_test();
 
     void refinit();
     void refplot_test();

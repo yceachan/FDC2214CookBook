@@ -1,5 +1,5 @@
 //
-// Created by ÒÂ³Â on 2023/3/25.
+// Created by è¡£é™ˆ on 2023/3/25.
 //
 
 #include "IIC.h"
@@ -8,6 +8,7 @@
 void delay_us(uint16_t us) {
     __HAL_TIM_SET_COUNTER(DELAYER , 0);
     HAL_TIM_Base_Start(DELAYER);
+//    us*=84;
     uint16_t block = 0;
     while( ( block =  __HAL_TIM_GET_COUNTER(DELAYER) )  < us);
     HAL_TIM_Base_Stop(DELAYER);
@@ -20,7 +21,7 @@ void IIC7bitDev::regWrite(uint16_t regADR, uint16_t data) {
     this->start();
     this->sendByte(devADR_WT());
 
-    if(!this->waitAck()) {print("W devADR_WT,Dev noAck\n"); return;}   //Éè±¸Ó¦´ð£¬¼Ä´æÆ÷ÎÞÓ¦´ð£¿
+    if(!this->waitAck()) {print("W devADR_WT,Dev noAck\n"); return;}   //
 
 
     this->sendByte(regADR);
@@ -91,38 +92,38 @@ void BaseIICdev::stop() {
     setupDelay();//Setup time for a stop condition:0.6s
     this->set_SDA(HIGH);
     holdonDelay();//SDA high pulse duration between STOP and START :1.3us
-//    this->set_SCL(LOW);   Í¨Ñ¶ÒÑ½áÊø£¬¿ÕÏÐÉÏÀ­¼´¿É£¬ÎÞÐèÏÂÀ­½áÊøÊ±ÖÓ
+//    this->set_SCL(LOW);   Í¨Ñ¶ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 //    holdonDelay();//SCL low period:1.3us
 }
 
 void BaseIICdev::ack(){
-    this->set_SDA(LOW); //Êý¾Ý´«Êäºó¸ø
+    this->set_SDA(LOW); //ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½ï¿½ï¿½
     setupDelay();
     this->set_SCL(HIGH);
     holdonDelay();
     this->set_SCL(LOW);
     holdonDelay();
-    this->set_SDA(HIGH);//Ö÷»úÓ¦´ðºóÊÍ·ÅSDA
+    this->set_SDA(HIGH);//ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Í·ï¿½SDA
 }
 void BaseIICdev::nack() {
     this->set_SDA(HIGH);
     setupDelay();
     this->set_SCL(HIGH);
     holdonDelay();
-    this->set_SCL(LOW); //ÔÚ±¾Ê±ÖÓÖÜÆÚÓ¦´ðÁËSDA£ºHIGH¡£Îª½öÁÚµÄIIC:stop´´ÔìÁËÌõ¼þ
+    this->set_SCL(LOW); //ï¿½Ú±ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½SDAï¿½ï¿½HIGHï¿½ï¿½Îªï¿½ï¿½ï¿½Úµï¿½IIC:stopï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     holdonDelay();
 }
 
 void BaseIICdev::sendByte(uint8_t data){
-    /*0x80¡Ô1000,0000£¬¼´·¢ËÍMSB£¨×î¸ßÓÐÐ§Î»£©*/
+    /*0x80ï¿½ï¿½1000,0000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MSBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Î»ï¿½ï¿½*/
     for(uint8_t i=0;i<8;i++)
     {
-        set_SDA( ((data & 0x80) >> 7) ? HIGH : LOW );    setupDelay();   //ÒÆÎ»ÓÅÏÈ¼¶¸ßÓÚ°´Î»Óë
+        set_SDA( ((data & 0x80) >> 7) ? HIGH : LOW );    setupDelay();   //ï¿½ï¿½Î»ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½Ú°ï¿½Î»ï¿½ï¿½
         set_SCL(HIGH);  holdonDelay();
         data<<=1;
         set_SCL(LOW);holdonDelay();
     }
-    set_SDA(HIGH);//ÊÍ·ÅSDA
+    set_SDA(HIGH);//ï¿½Í·ï¿½SDA
 }
 
 uint8_t BaseIICdev::readByte() {
@@ -137,12 +138,12 @@ uint8_t BaseIICdev::readByte() {
     return Rx;
 }
 
-bool BaseIICdev::waitAck() {  //Èç¹ûÄúÔÚÀà¶¨ÒåÄÚ²¿ÉùÃ÷³ÉÔ±º¯ÊýÎªÄÚÁª£¬ÔòÎÞÐèÔÚÀàÍâ²¿µÄ³ÉÔ±º¯Êý¶¨ÒåÖÐÔÙ´ÎÌí¼Óinline¹Ø¼ü×Ö¡£
+bool BaseIICdev::waitAck() {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¶¨ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½Ä³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½ï¿½inlineï¿½Ø¼ï¿½ï¿½Ö¡ï¿½
     PIN_STATE  re = HIGH;
 
-    set_SDA(HIGH);	/* CPUÊÍ·ÅSDA×ÜÏß */
+    set_SDA(HIGH);	/* CPUï¿½Í·ï¿½SDAï¿½ï¿½ï¿½ï¿½ */
     setupDelay();
-    set_SCL(HIGH);	/* µÚ 9 Ö¡Ê±ÖÓ £º ²É¼¯Éè±¸Ó¦´ðÐÅºÅ ÁãÎªÓ¦´ð£¬1Îª·ÇÓ¦´ð */
+    set_SCL(HIGH);	/* ï¿½ï¿½ 9 Ö¡Ê±ï¿½ï¿½ ï¿½ï¿½ ï¿½É¼ï¿½ï¿½è±¸Ó¦ï¿½ï¿½ï¿½Åºï¿½ ï¿½ï¿½ÎªÓ¦ï¿½ï¿½1Îªï¿½ï¿½Ó¦ï¿½ï¿½ */
 
     __HAL_TIM_SET_COUNTER(DELAYER,0);
     HAL_TIM_Base_Start(DELAYER);
@@ -150,7 +151,7 @@ bool BaseIICdev::waitAck() {  //Èç¹ûÄúÔÚÀà¶¨ÒåÄÚ²¿ÉùÃ÷³ÉÔ±º¯ÊýÎªÄÚÁª£¬ÔòÎÞÐèÔÚÀà
 
     HAL_TIM_Base_Stop(DELAYER);
 
-    set_SCL(LOW); //²ÉÑùÍê³É£¬½áÊøÊ±ÖÓ;
+    set_SCL(LOW); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½;
     return (re == LOW);
 }
 BaseIICdev::BaseIICdev(uint16_t devADR, GPIO_TypeDef *sclPORT, uint16_t sclPIN, GPIO_TypeDef *sdaPORT, uint16_t sdaPIN) {

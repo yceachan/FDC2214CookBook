@@ -345,11 +345,19 @@ void Fdc::singleinit() {
 
 ![image-20230414195413754](https://s2.loli.net/2023/04/14/XsDTNmw7iVJnC8A.png)
 
-## 2. IIC时序要求
+## 2. 3 IIC时序要求
 
 400khz fast mode 如下
 
 ![image-20230411125440601](https://s2.loli.net/2023/04/11/mIlpxH8NT7bOXnZ.png)
+
+## 2.4生成数据读取
+
+lsb仅会在msb被读取后装载
+
+![image-20230419170731052](https://s2.loli.net/2023/04/19/PTMvHUZ27XxjqlL.png)
+
+
 
 # 3.FDC测量报告：
 
@@ -357,7 +365,11 @@ void Fdc::singleinit() {
 
 此FDC模块测量示值距离标称值较远，始终偏大，误差分析如下：
 
+### 0.内部时钟漂移
 
+![image-20230419165913693](https://s2.loli.net/2023/04/19/rgBzHp3ARGMVf4O.png)
+
+![image-20230419170111483](https://s2.loli.net/2023/04/19/G2VExPjpCYOLu86.png)
 
 1. ==致命误差：电感容差10%，使得精准测量不再现实==
 

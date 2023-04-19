@@ -1,6 +1,6 @@
 CMakeFiles/FDC_trail.elf.dir/Core/bsp/fdc.cpp.obj: \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\bsp\fdc.cpp \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\bsp\fdc.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\bsp\fdc.cpp \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\bsp\fdc.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\tuple \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\utility \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\arm-none-eabi\thumb\v7e-m\nofp\bits\c++config.h \
@@ -33,16 +33,16 @@ CMakeFiles/FDC_trail.elf.dir/Core/bsp/fdc.cpp.obj: \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\range_cmp.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\uses_allocator.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\invoke.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\bsp\IIC.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\Inc/tim.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\Inc/main.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\Inc/stm32f4xx_hal_conf.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_rcc.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_def.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Device\ST\STM32F4xx\Include/stm32f4xx.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Device\ST\STM32F4xx\Include/stm32f407xx.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Include/core_cm4.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\bsp\IIC.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\Inc/tim.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\Inc/main.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\Inc/stm32f4xx_hal_conf.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_rcc.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_def.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Device\ST\STM32F4xx\Include/stm32f4xx.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Device\ST\STM32F4xx\Include/stm32f407xx.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Include/core_cm4.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\stdint.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\machine\_default_types.h \
@@ -50,29 +50,29 @@ CMakeFiles/FDC_trail.elf.dir/Core/bsp/fdc.cpp.obj: \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\_newlib_version.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\_intsup.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\_stdint.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Include/cmsis_version.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Include/cmsis_compiler.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Include/cmsis_gcc.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Include/mpu_armv7.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\CMSIS\Device\ST\STM32F4xx\Include/system_stm32f4xx.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/Legacy/stm32_hal_legacy.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Include/cmsis_version.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Include/cmsis_compiler.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Include/cmsis_gcc.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Include/mpu_armv7.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\CMSIS\Device\ST\STM32F4xx\Include/system_stm32f4xx.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/Legacy/stm32_hal_legacy.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\lib\gcc\arm-none-eabi\10.3.1\include\stddef.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_rcc_ex.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_gpio.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_gpio_ex.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_exti.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_dma.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_dma_ex.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_cortex.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_flash.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_flash_ex.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_flash_ramfunc.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_pwr.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_pwr_ex.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_tim.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_tim_ex.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_uart.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\Inc/main.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_rcc_ex.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_gpio.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_gpio_ex.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_exti.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_dma.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_dma_ex.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_cortex.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_flash.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_flash_ex.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_flash_ramfunc.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_pwr.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_pwr_ex.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_tim.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_tim_ex.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Drivers\STM32F4xx_HAL_Driver\Inc/stm32f4xx_hal_uart.h \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\Inc/main.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\cmath \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\math.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\reent.h \
@@ -103,10 +103,13 @@ CMakeFiles/FDC_trail.elf.dir/Core/bsp/fdc.cpp.obj: \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\tr1\poly_hermite.tcc \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\tr1\poly_laguerre.tcc \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\tr1\riemann_zeta.tcc \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\vector \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\allocator.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\arm-none-eabi\thumb\v7e-m\nofp\bits\c++allocator.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\ext\new_allocator.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\algorithm \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_algo.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\cstdlib \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\algorithmfwd.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_heap.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_tempbuf.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_construct.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\new \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\exception \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\exception.h \
@@ -115,29 +118,21 @@ CMakeFiles/FDC_trail.elf.dir/Core/bsp/fdc.cpp.obj: \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\typeinfo \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\hash_bytes.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\nested_exception.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\memoryfwd.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_construct.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_uninitialized.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\ext\alloc_traits.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\alloc_traits.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_vector.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_bvector.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\functional_hash.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\vector.tcc \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\algorithm \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_algo.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\cstdlib \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\algorithmfwd.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_heap.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_tempbuf.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\uniform_int_dist.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\pstl\glue_algorithm_defs.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\functional \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_function.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\backward\binders.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\functional_hash.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\refwrap.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\std_function.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\unordered_map \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\allocator.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\arm-none-eabi\thumb\v7e-m\nofp\bits\c++allocator.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\ext\new_allocator.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\memoryfwd.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\ext\alloc_traits.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\alloc_traits.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\ext\aligned_buffer.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\hashtable.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\hashtable_policy.h \
@@ -146,11 +141,13 @@ CMakeFiles/FDC_trail.elf.dir/Core/bsp/fdc.cpp.obj: \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\enable_special_members.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\unordered_map.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\erase_if.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\vector \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_uninitialized.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_vector.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_bvector.h \
+ d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\vector.tcc \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\pstl\execution_defs.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\numeric \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\bits\stl_numeric.h \
- d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\pstl\glue_numeric_defs.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\bsp\LOG.hpp \
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\bsp\LOG.hpp \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\iostream \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\ostream \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\c++\10.3.1\ios \
@@ -223,4 +220,4 @@ CMakeFiles/FDC_trail.elf.dir/Core/bsp/fdc.cpp.obj: \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\string.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\strings.h \
  d:\cubemx\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\string.h \
- C:\Users\yceachan\Desktop\32things\FDC_trail\Core\Inc/usart.h
+ C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\Core\Inc/usart.h

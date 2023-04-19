@@ -4,9 +4,9 @@
 
 #include "fdc.h"
 #include <cmath>
-#include <vector>
+
 #include<algorithm>
-#include <numeric>
+#include"tim.h"
 /*FDC2214    iic从地址
  *ADDR = L , I2C Address = 0x2A
  *ADDR = H , I2C Address = 0x2B*/
@@ -64,60 +64,37 @@ void Fdc::singleinit() {
 
 
     //100us/sample ::measureTime=4k*Tref(40m^-1) , reg_DATA ::0xFA * 16u * Tref =2kTREF=100us/sample
-    this->regWrite(RCOUNT_CH2,0x0200);  //nobt=0xF00 = 12位有效数字
+    this->regWrite(RCOUNT_CH2,0x0100);  //nobt=0xF00 = 12位有效数字
 
     //等待沉降时间推算CHx_SETTLECOUNT > Vpk × fREFx × C × π /32 /IDRIVE=4.499
-    this->regWrite(SETTLECOUNT_CH2,0x002C);//(T=0x0a * 16 /fREF)=等待沉降时间4us
+    this->regWrite(SETTLECOUNT_CH2,0x000A);//(T=0x0a * 16 /fREF)=等待沉降时间4us
 
-    this->regWrite(CLOCK_DIVIDERS_C_CH2,0x1002);//Fin1分频0.01-8.75mhz，fREF1分频 10mhz
+    this->regWrite(CLOCK_DIVIDERS_C_CH2,0x1001);//Fin1分频0.01-8.75mhz，fREF1分频 10mhz
     this->regWrite(DRIVE_CURRENT_CH2,0xF000);//电流驱动:0.146mA（传感器时钟建立+转换时间的驱动电流,驱动电流da，转换快）
 
 //    this->regWrite(MUX_CONFIG,0x820D);//滤波带宽10mhz
     this->regWrite(MUX_CONFIG,0x020D);//滤波带宽10mhz
-    this->regWrite(CONFIG,0x9C01);//
-}
-
-std::tuple<double, double, double, uint32_t> Fdc::plot_test(uint8_t CH) {
-
-    uint8_t rx[2]={0};
-    bool UNREADCONV=false;
-    uint8_t msb[2]={0},lsb[2]={0};
-    uint32_t cnt=0;
+    this->regWrite(CONFIG,0x9C01);//解除休眠,开启中断
     __HAL_TIM_SET_COUNTER(&htim6,0);
     HAL_TIM_Base_Start(&htim6);
-    do {
-        this->regRead(STATUS,2,rx);
-        UNREADCONV=rx[1] & ( CH?(0b00000100):(0b00000010) );
-        //降低轮询频率，防止IIC错误
-        delay_us(100);
-    }while(!UNREADCONV);
+}
 
-    this->regRead(CH ? DATA_CH1 : DATA_CH2,2,msb);
-    this->regRead(CH ? DATA_LSB_CH1 :DATA_LSB_CH2,2,lsb);
+std::tuple<double, uint32_t> Fdc::plot_test() {  //开启o2获得rvo优化（复制消除）
+    static uint32_t  T=0;
+    uint8_t rx[2]={0};
 
-    cnt= __HAL_TIM_GET_COUNTER(&htim6);
-    HAL_TIM_Base_Stop(&htim6);
-
+    uint8_t msb[2]={0},lsb[2]={0};
+    T= __HAL_TIM_GET_COUNTER(&htim6);
+    this->regRead( DATA_CH2,2,msb);
+    this->regRead(DATA_LSB_CH2,2,lsb);
+    T= __HAL_TIM_GET_COUNTER(&htim6) - T;
     uint32_t data=0;
     data|= (msb[0]<<(24)) | (msb[1]<<16) | (lsb[0]<<8) | (lsb[1]);
     data<<=4;
     data>>=4;
-    double f=1*20*data/double(1<<28);//
-    //f=1/(2 * pi * sqrt{ L * C } )
-    //C=1/( (2 * pi * f )^2 * L)
-    double c_max = (1/(pow(2*acos(-1)*f,2) * 18*0.9 ))  * 1e6;//板载电感:18uh 板载电容:__pf
-
-    double c_min = (1/(pow(2*acos(-1)*f,2) * 18*1.1 ))  * 1e6;//板载电感:18uh 板载电容:__pf
-
-    return {c_min,c_max,f,cnt};
-}
-
-void Fdc::refinit() {
-
-}
-
-void Fdc::refplot_test() {
-
+    double f=1*40*data/double(1<<28);
+    double c_max = (1/(pow(2*acos(-1)*f,2) * 18 ))  * 1e6;
+    return {c_max,T};
 }
 
 

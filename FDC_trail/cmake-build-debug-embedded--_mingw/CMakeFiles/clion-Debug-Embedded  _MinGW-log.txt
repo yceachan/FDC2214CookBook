@@ -1,5 +1,5 @@
-"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/mingw32-make.exe" -DCMAKE_C_COMPILER=D:/CubeMX/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc.exe -DCMAKE_CXX_COMPILER=D:/CubeMX/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-g++.exe -G "MinGW Makefiles" -S C:\Users\yceachan\Desktop\32things\FDC_trail -B C:\Users\yceachan\Desktop\32things\FDC_trail\cmake-build-debug-embedded--_mingw
+"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/mingw32-make.exe" -DCMAKE_C_COMPILER=D:/CubeMX/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc.exe -DCMAKE_CXX_COMPILER=D:/CubeMX/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-g++.exe -G "MinGW Makefiles" -S C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail -B C:\Users\yceachan\Desktop\32things\FDC2214_Report\FDC_trail\cmake-build-debug-embedded--_mingw
 -- Minimal optimization, debug info included
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/yceachan/Desktop/32things/FDC_trail/cmake-build-debug-embedded--_mingw
+-- Build files have been written to: C:/Users/yceachan/Desktop/32things/FDC2214_Report/FDC_trail/cmake-build-debug-embedded--_mingw

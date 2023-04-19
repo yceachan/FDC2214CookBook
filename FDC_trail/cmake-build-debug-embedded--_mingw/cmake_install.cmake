@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/yceachan/Desktop/32things/FDC_trail
+# Install script for directory: C:/Users/yceachan/Desktop/32things/FDC2214_Report/FDC_trail
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/yceachan/Desktop/32things/FDC_trail/cmake-build-debug-embedded--_mingw/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/yceachan/Desktop/32things/FDC2214_Report/FDC_trail/cmake-build-debug-embedded--_mingw/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

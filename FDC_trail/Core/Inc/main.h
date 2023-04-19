@@ -61,7 +61,9 @@ void Error_Handler(void);
 #define FDC_SDA_PIN_GPIO_Port GPIOH
 #define FDC_SCL_PIN_Pin GPIO_PIN_5
 #define FDC_SCL_PIN_GPIO_Port GPIOH
-
+#define FDC_INT_Pin GPIO_PIN_5
+#define FDC_INT_GPIO_Port GPIOE
+#define FDC_INT_EXTI_IRQn EXTI9_5_IRQn
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
