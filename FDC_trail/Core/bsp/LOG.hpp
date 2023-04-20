@@ -43,7 +43,7 @@
  * @notice：打印名将是传入文本的原样,可以为表达式或字面量;底层LOGGER为print方法，请实现,
  * */
 #define logln(...) do{print("in ",__FUNCTION__,",l",__LINE__,endl);EXPAND(NTH_LOG(__VA_ARGS__))(__VA_ARGS__);}while(0)
-
+#define logplot(...) do { print("c:",__VA_ARGS__,'\n');}while(0)
 //只处理数字数字与字符串
 template<typename T>
 void print(T&& arg){

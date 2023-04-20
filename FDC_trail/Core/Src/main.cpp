@@ -60,16 +60,7 @@ Fdc fdc(0x2A,FDC_SCL_PIN_GPIO_Port,FDC_SCL_PIN_Pin,FDC_SDA_PIN_GPIO_Port,FDC_SDA
 uint32_t  T=0;
 bool flag=false;
 //不进中断捏
-void HAL_GPIO_EXTI_Callback(uint16_t pin) {
 
-    uint8_t msb[2]={0},lsb[2]={0};
-    fdc.regRead( 0x18,2,msb);
-    fdc.regRead( 0x04,2,msb);//读完msb还是lsb，status清零呢，
-    fdc.regRead(0x05,2,lsb);
-    T= __HAL_TIM_GET_COUNTER(&htim6);
-    __HAL_TIM_SET_COUNTER(&htim6,0);
-    flag=true;
-}
 /* USER CODE END 0 */
 
 /**
@@ -110,10 +101,8 @@ int main(void)
     uint32_t  cnt=0;
     while (1)
     {
-       if(flag){
-           print("c:",T,'\n');
-           flag=false;
-       }
+       auto [c,cnt] = fdc.plot_test();
+       logplot(c,cnt);
     }
   /* USER CODE END 3 */
 }

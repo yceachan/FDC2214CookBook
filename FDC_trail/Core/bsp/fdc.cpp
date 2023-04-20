@@ -64,19 +64,19 @@ void Fdc::singleinit() {
 
 
     //100us/sample ::measureTime=4k*Tref(40m^-1) , reg_DATA ::0xFA * 16u * Tref =2kTREF=100us/sample
-    this->regWrite(RCOUNT_CH2,0x0100);  //nobt=0xF00 = 12位有效数字
+    this->regWrite(RCOUNT_CH2,0x0100);
 
     //等待沉降时间推算CHx_SETTLECOUNT > Vpk × fREFx × C × π /32 /IDRIVE=4.499
-    this->regWrite(SETTLECOUNT_CH2,0x000A);//(T=0x0a * 16 /fREF)=等待沉降时间4us
+    this->regWrite(SETTLECOUNT_CH2,0x000A);//
 
-    this->regWrite(CLOCK_DIVIDERS_C_CH2,0x1001);//Fin1分频0.01-8.75mhz，fREF1分频 10mhz
-    this->regWrite(DRIVE_CURRENT_CH2,0xF000);//电流驱动:0.146mA（传感器时钟建立+转换时间的驱动电流,驱动电流da，转换快）
+    this->regWrite(CLOCK_DIVIDERS_C_CH2,0x1001);//
+    this->regWrite(DRIVE_CURRENT_CH2,0xF000);//
 
 //    this->regWrite(MUX_CONFIG,0x820D);//滤波带宽10mhz
     this->regWrite(MUX_CONFIG,0x020D);//滤波带宽10mhz
     this->regWrite(CONFIG,0x9C01);//解除休眠,开启中断
-    __HAL_TIM_SET_COUNTER(&htim6,0);
-    HAL_TIM_Base_Start(&htim6);
+
+    HAL_Delay(2);
 }
 
 std::tuple<double, uint32_t> Fdc::plot_test() {  //开启o2获得rvo优化（复制消除）
@@ -84,10 +84,12 @@ std::tuple<double, uint32_t> Fdc::plot_test() {  //开启o2获得rvo优化（复
     uint8_t rx[2]={0};
 
     uint8_t msb[2]={0},lsb[2]={0};
-    T= __HAL_TIM_GET_COUNTER(&htim6);
+    __HAL_TIM_SET_COUNTER(&htim6,0);
+    __HAL_TIM_ENABLE(&htim6);
     this->regRead( DATA_CH2,2,msb);
     this->regRead(DATA_LSB_CH2,2,lsb);
-    T= __HAL_TIM_GET_COUNTER(&htim6) - T;
+    T= __HAL_TIM_GET_COUNTER(&htim6);
+    __HAL_TIM_DISABLE(&htim6);
     uint32_t data=0;
     data|= (msb[0]<<(24)) | (msb[1]<<16) | (lsb[0]<<8) | (lsb[1]);
     data<<=4;

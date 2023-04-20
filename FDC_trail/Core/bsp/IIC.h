@@ -26,14 +26,16 @@ void delay_us(uint16_t us);
 class BaseIICdev{
 public:
     BaseIICdev(uint16_t devADR, GPIO_TypeDef* sclPORT, uint16_t sclPIN, GPIO_TypeDef* sdaPORT, uint16_t sdaPIN);
-    virtual void regWrite(uint16_t regADR, uint16_t data)=0;
-    virtual void regRead(uint16_t regADR, uint8_t len, uint8_t* Rx_buffer)=0;
+
     uint16_t devADR;
     GPIO_TypeDef *SCL_PORT,*SDA_PORT;
     uint16_t SCL_PIN,SDA_PIN;
 protected:
     void start();
     void stop();
+
+    virtual void regWrite(uint16_t regADR, uint16_t data) =0 ;
+    virtual void regRead(uint16_t regADR, uint8_t len, uint8_t* Rx_buffer) = 0;
 
     enum  ACK_CHOICE{ACK=0,NACK=1};
     enum  PIN_STATE {LOW=0,HIGH=1};
@@ -58,8 +60,8 @@ protected:
 class IIC7bitDev : public BaseIICdev{
 public:
     IIC7bitDev(uint16_t devADR, GPIO_TypeDef* sclPORT, uint16_t sclPIN, GPIO_TypeDef* sdaPORT, uint16_t sdaPIN);
-    virtual void regWrite(uint16_t regADR, uint16_t data);
-    virtual void regRead(uint16_t regADR, uint8_t len, uint8_t* Rx_buffer);
+    void regWrite(uint16_t regADR, uint16_t data) override;
+    void regRead(uint16_t regADR, uint8_t len, uint8_t* Rx_buffer) override;
 };
 
 

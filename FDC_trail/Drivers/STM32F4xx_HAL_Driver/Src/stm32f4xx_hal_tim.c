@@ -413,9 +413,9 @@ HAL_StatusTypeDef HAL_TIM_Base_Start(TIM_HandleTypeDef *htim)
   htim->State = HAL_TIM_STATE_BUSY;
 
   /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger */
-  if (IS_TIM_SLAVE_INSTANCE(htim->Instance))
+  if (IS_TIM_SLAVE_INSTANCE(htim->Instance)) //判断形参instance地址。
   {
-    tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;
+    tmpsmcr = htim->Instance->SMCR & TIM_SMCR_SMS;  //读一个SMCR寄存器
     if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
     {
       __HAL_TIM_ENABLE(htim);
