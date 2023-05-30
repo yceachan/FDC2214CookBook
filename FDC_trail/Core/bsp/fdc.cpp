@@ -50,6 +50,10 @@
 #define DEVICE_ID 0x7F            //读取值：0x3055
 #include "LOG.hpp"
 void Fdc::singleinit() {
+
+
+    __HAL_TIM_SET_COUNTER(&htim7,0);
+    __HAL_TIM_ENABLE(&htim7);
     this->regWrite(RESET_DEV,0x8000);//复位
 
     uint8_t did[2]={0};
@@ -80,7 +84,7 @@ void Fdc::singleinit() {
 }
 
 std::tuple<double, uint32_t> Fdc::plot_test() {  //开启o2获得rvo优化（复制消除）
-    static uint32_t  T=0;
+    uint32_t  T=0;
     uint8_t rx[2]={0};
 
     uint8_t msb[2]={0},lsb[2]={0};

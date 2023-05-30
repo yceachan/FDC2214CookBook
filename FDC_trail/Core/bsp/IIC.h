@@ -20,7 +20,6 @@
 #include"main.h"
 
 #define DELAYER &htim7
-void delay_us(uint16_t us);
 
 
 class BaseIICdev{
@@ -51,8 +50,8 @@ protected:
     inline uint16_t devADR_RD();
     inline uint16_t devADR_WT();
 
-    inline void set_SCL(PIN_STATE op);
-    inline void set_SDA(PIN_STATE op);
+    inline void set_SCL(PIN_STATE op) const;
+    inline void set_SDA(PIN_STATE op) const;
     inline PIN_STATE read_SDA();
 };
 

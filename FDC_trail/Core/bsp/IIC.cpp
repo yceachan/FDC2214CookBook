@@ -4,16 +4,19 @@
 
 #include "IIC.h"
 #include"LOG.hpp"
+struct Reg32{
+    volatile uint32_t reg;
+};
+#define DWT_CTRL           ((( Reg32*)0xE0001000)->reg)
+#define DWT_CYCCNT         (((Reg32*)0xE0001004)->reg)
+#define DEMCR              (((Reg32*)0xE000EDFC)->reg)
+#define  DWT_ENABLE        (1 << 24)
+#define DWT_CYCCNT_ENABLE  (1 << 0)
+#define m_freq             (168)
 
-void delay_us(uint16_t us) {  //极端右值引用优化 ：只传字面量
-    __HAL_TIM_SET_COUNTER(DELAYER , 0);
-    //减少了不必要的临时变量block和赋值操作。开定时器的操作改为用宏直接写寄存器，减少HAL库的检查消耗。
-    __HAL_TIM_ENABLE(DELAYER);
-//    HAL_TIM_Base_Start(DELAYER);
-//    us*=42;
-    while( __HAL_TIM_GET_COUNTER(DELAYER) < us);
-//    HAL_TIM_Base_Stop(DELAYER);
-    __HAL_TIM_DISABLE(DELAYER);
+inline void delay_us(uint16_t us) {
+  DWT_CYCCNT=0;
+  while(DWT_CYCCNT<m_freq*us);
 }
 inline void setupDelay() { delay_us(1);}  //用于保证电平变化的顺序    ，建立时间
 inline void holdonDelay() { delay_us(2);} //用于SCL HIGH下的 SDA采集，保持时间
@@ -65,7 +68,14 @@ IIC7bitDev::IIC7bitDev(uint16_t devADR, GPIO_TypeDef *sclPORT, uint16_t sclPIN, 
 
 
 BaseIICdev::PIN_STATE BaseIICdev::read_SDA() {
-    return PIN_STATE(HAL_GPIO_ReadPin(SDA_PORT,SDA_PIN));
+    if((SDA_PORT->IDR & SDA_PIN))
+    {
+       return HIGH;
+    }
+    else
+    {
+        return LOW;
+    }
 }
 
 uint16_t BaseIICdev::devADR_RD() {
@@ -128,7 +138,6 @@ void BaseIICdev::sendByte(uint8_t data){
     }
     set_SDA(HIGH);//�ͷ�SDA
 }
-
 uint8_t BaseIICdev::readByte() {
     uint8_t Rx=0;
     for(uint8_t i=0;i<8;i++)
@@ -147,12 +156,9 @@ bool BaseIICdev::waitAck() {  //
     set_SDA(HIGH);	/* 释放SDA，此时SDA电平为跟从机SDA线与结果，若从机下拉SDA应答，则为低，若尚未应答，则为高 */
     setupDelay();
     set_SCL(HIGH);	/* 产生*/
-
-    __HAL_TIM_SET_COUNTER(DELAYER,0);
-    __HAL_TIM_ENABLE(DELAYER);
-    while( ( (re=read_SDA()) == HIGH ) && __HAL_TIM_GET_COUNTER(DELAYER) < 30000 );
-
-    __HAL_TIM_DISABLE(DELAYER);
+    setupDelay();//等待时间为：setupDelay + 0xFF nop
+    uint8_t tick=0;
+    while( ( (re=read_SDA()) == HIGH ) && ++tick< 0xFF );
 
     set_SCL(LOW); //为stop时序准备的SCL低
     return (re == LOW);
@@ -163,12 +169,29 @@ BaseIICdev::BaseIICdev(uint16_t devADR, GPIO_TypeDef *sclPORT, uint16_t sclPIN, 
     this->SCL_PORT=sclPORT;
     this->SDA_PIN=sdaPIN;
     this->SDA_PORT=sdaPORT;
+    ATOMIC_SET_BIT(DEMCR, DWT_ENABLE);
+    ATOMIC_SET_BIT(DWT_CTRL, DWT_CYCCNT_ENABLE);
+
 }
 
-void BaseIICdev::set_SCL(BaseIICdev::PIN_STATE op) {
-    HAL_GPIO_WritePin(SCL_PORT,SCL_PIN,(GPIO_PinState)op);
+void BaseIICdev::set_SCL(BaseIICdev::PIN_STATE op) const {
+    if(op != LOW)
+    {
+        SCL_PORT->BSRR = SCL_PIN;
+    }
+    else
+    {
+        SCL_PORT->BSRR = (uint32_t)SCL_PIN << 16U;
+    }
 }
 
-void BaseIICdev::set_SDA(BaseIICdev::PIN_STATE op) {
-    HAL_GPIO_WritePin(SDA_PORT,SDA_PIN,(GPIO_PinState)op);
+void BaseIICdev::set_SDA(BaseIICdev::PIN_STATE op) const {
+    if(op != LOW)
+    {
+        SDA_PORT->BSRR = SDA_PIN;
+    }
+    else
+    {
+        SDA_PORT->BSRR = (uint32_t)SDA_PIN << 16U;
+    }
 }

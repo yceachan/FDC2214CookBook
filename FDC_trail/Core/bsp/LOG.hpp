@@ -52,7 +52,7 @@ void print(T&& arg){
         HAL_UART_Transmit(LOGGER,str.data(),str.length(),300);
     }
     else {
-        std::string str=std::to_string(arg) +' ';
+        std::string_view str=std::to_string(arg) +' ';
         HAL_UART_Transmit(LOGGER,str.data(),str.length(),300);
     }
 }

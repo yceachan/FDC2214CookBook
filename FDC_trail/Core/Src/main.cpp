@@ -23,6 +23,7 @@
 #include "gpio.h"
 #include"fdc.h"
 #include"LOG.hpp"
+#include"cstring"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -57,8 +58,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 Fdc fdc(0x2A,FDC_SCL_PIN_GPIO_Port,FDC_SCL_PIN_Pin,FDC_SDA_PIN_GPIO_Port,FDC_SDA_PIN_Pin);
-uint32_t  T=0;
-bool flag=false;
+char Txbuf[128];
 //不进中断捏
 
 /* USER CODE END 0 */
@@ -98,11 +98,12 @@ int main(void)
 
     fdc.singleinit();
 
-    uint32_t  cnt=0;
     while (1)
     {
        auto [c,cnt] = fdc.plot_test();
-       logplot(c,cnt);
+        logplot(c,double(cnt)/84);
+
+       continue;
     }
   /* USER CODE END 3 */
 }

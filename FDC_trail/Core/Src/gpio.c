@@ -68,9 +68,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);  //在gpio.c里配置的nvic
-  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 

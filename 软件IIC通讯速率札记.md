@@ -23,23 +23,19 @@
 > __HAL_TIM_DISABLE(&htim6);
 > ```
 
-## **未优化多态 ，未优化软延时 872us**  
+## **HAL开定时器延时 872us**  
 
 ![image-20230420144930705](https://s2.loli.net/2023/04/20/LSeRHPbzG9AVql2.png)
 
 ![image-20230420145041728](https://s2.loli.net/2023/04/20/nTVd3cYeQlZjoG9.png)
 
-## 未优化多态，优化软延时 687us
+## 宏开定时器延时 687us
 
 ![image-20230420145220272](https://s2.loli.net/2023/04/20/Et4n1uDzwI7QvfZ.png)
 
 ![image-20230420145257843](https://s2.loli.net/2023/04/20/1YO27podJLiMyGt.png)
 
-## 去除多态，优化软延时 687us
 
-![image-20230420145423110](https://s2.loli.net/2023/04/20/KGANRMm6OCyBdcH.png)
-
-面向对象的多态设计并未带来明显开销（在基类为纯虚函数下）
 
 ## 软延时保留临时变量赋值 688us
 
@@ -116,37 +112,9 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop(TIM_HandleTypeDef *htim)
 
 ![image-20230420150854793](https://s2.loli.net/2023/04/20/wapd7gTWzMIrVB1.png)
 
-## 都只是读写以下寄存器，好像没有需要耗时100us的操作啊
+ 都只是读写以下寄存器，好像没有需要耗时100us的操作啊
 
-# 猜想解释：读定时器寄存器的速率是？
-
-是APB时钟还是分频时钟呢？
-
-如果是分频时钟1mhz，那么额外耗时可以解释的 **（但这是相当反直觉的**
-
-![image-20230420153605705](https://s2.loli.net/2023/04/20/RUSn94D6GA5ye3j.png)
-
-使用HAL库开启定时器会多读一个寄存器，可以折合1us。
-
-72个时钟多耗时100多us
-
-根据这个模型，对于872us的计算，此处1us
-
-一个时钟2个延时共3us，开关两次定时器4us，根据读一次定时器1us
-
-`while( (block=__HAL_TIM_GET_COUNTER(DELAYER)) < us);` 共执行3次us
-
-共12us,合83.3khz，72个时钟即为864us 
-
-听起来比较合理
-
-去掉hal库，11us合90.9khz,72个时钟即为654us
-
-听起来比较合理。
-
-**但很假**
-
-## 验证方案：测试84mhz定时器在两个软延时的性能
+# 测试84mhz定时器在两个软延时的性能
 
 理论而言，配置84mhz后，二者都会在while中阻塞多次，HAL函数的检查开销的影响会变小，二者耗时应该相近
 
@@ -157,10 +125,6 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop(TIM_HandleTypeDef *htim)
 ## HAL开定时器  1048us
 
 ![image-20230420170826079](https://s2.loli.net/2023/04/20/KQrLsIXFcu2oWVJ.png)
-
-# 以上猜想有假，两个函数性能均下降，且差距拉大
-
-to be continued.....
 
 # 软件IIC优化：
 
@@ -187,3 +151,20 @@ to be continued.....
 
 
 疑惑是更高分辨率的寄存器为什么软延时性能反而更差
+
+# 尝试中断配置：1700us
+
+HAL库的中断服务函数相当长
+
+# 在init中提前启动2mhz计时器,补偿0.5us延时:529us
+
+![image-20230426144821123](https://s2.loli.net/2023/04/26/2ZxcV6Xd9jYnmDE.png)
+
+~~~cpp
+void delay_us(uint16_t us) {
+    __HAL_TIM_SET_COUNTER(DELAYER,__HAL_TIM_GET_COUNTER(DELAYER)%0xFF00);
+    uint32_t ceil= (__HAL_TIM_GET_COUNTER(DELAYER) +us * 2 -1 ) ;
+    while(__HAL_TIM_GET_COUNTER(DELAYER) <ceil);
+}
+~~~
+
